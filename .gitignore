@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pyenv
+.python-version
+
+# virtualenv
+.venv
+venv/
+VENV/
+ENV/
+
+# JetBrains project settings
+.idea
+/target/
+/out/
+*.iml
+
+# Eclipse project settings
+.settings
+*.project
+*.pydevproject
+*.classpath
+
+# Visual Studio Code settings
+*.code-workspace
+settings.json
+
+# output
+_output*
+
+# test results
+results.xml

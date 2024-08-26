@@ -1,22 +1,20 @@
-from locust import task,TaskSet
+
+from locust import task, TaskSet
+
 
 class ActionsOnUsers(TaskSet):
 
     @task(20)
-    def getuserslist(self):
+    def get_users_list(self):
         self.client.get("/api/users?page=2")
 
     @task(30)
-    def getuserinfo(self):
+    def get_user_info(self):
         self.client.get("/api/users/2")
 
-    @task(10)
-    def getwronguser(self):
-        self.client.get("/api/users/23")
-
     @task(20)
-    def createUser(self):
-        self.client.post("/api/users",data='''
+    def create_user(self):
+        self.client.post("/api/users", data='''
         {
             "name": "morpheus",
             "job": "leader"
@@ -24,8 +22,8 @@ class ActionsOnUsers(TaskSet):
          ''')
 
     @task(10)
-    def updateuser(self):
-        self.client.put("/api/users/2",data='''
+    def update_user(self):
+        self.client.put("/api/users/2", data='''
         {
             "name": "morpheus",
             "job": "zion resident"
@@ -33,8 +31,8 @@ class ActionsOnUsers(TaskSet):
         ''')
 
     @task(5)
-    def updatePatchUser(self):
-        self.client.patch("/api/users/2",data='''
+    def patch_user(self):
+        self.client.patch("/api/users/2", data='''
         {
             "name": "morpheus",
             "job": "zion resident"
@@ -42,5 +40,5 @@ class ActionsOnUsers(TaskSet):
         ''')
 
     @task(5)
-    def deleteUser(self):
+    def delete_user(self):
         self.client.delete("/api/users/2")

@@ -14,12 +14,12 @@ class UserInterfaz(HttpUser):
         self.user_attr = {}
         # todos los atributos que yo quiera de httpuser
 
-    def set_userId(self, userId):
-        self.user_attr['userId'] = userId
+    def set_user_id(self, user_id):
+        self.user_attr['user_id'] = user_id
 
-    def get_userIdl(self):
-        if 'userId' in self.user_attr:
-            return self.user_attr['userId']
+    def get_user_id(self):
+        if 'user_id' in self.user_attr:
+            return self.user_attr['user_id']
         else:
             return None
 

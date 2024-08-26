@@ -6,10 +6,10 @@ from locust.env import Environment
 from locust.stats import stats_history, stats_printer
 from locust.log import setup_logging
 
-from navigations.actionsOnResources import ActionsOnResources
-from navigations.actionsOnUsers import ActionsOnUsers
-from tasks.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
-from tasks.request_endpoint import *
+from tasks.actions_resources import ActionsOnResources
+from tasks.actions_users import ActionsOnUsers
+from executions.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
+from executions.request_endpoint import *
 
 
 def execute_locust_tasks(context, task_classes_name):

@@ -1,4 +1,5 @@
-from locust import task, SequentialTaskSet,log
+
+from locust import task, SequentialTaskSet
 
 
 class ActionsOnResources(SequentialTaskSet):
@@ -9,22 +10,22 @@ class ActionsOnResources(SequentialTaskSet):
         pass
 
     @task(3)
-    def listallresources(self):
+    def list_all_resources(self):
         with self.client.get("/api/unknown", catch_response=True) as response:
             if response.status_code != 200:
                 response.fail("Status code {}".format(response.status_code))
 
-
     @task(6)
-    def getsingleresource(self):
+    def get_single_resource(self):
 
         with self.client.get("/api/unknown/2", catch_response=True) as response:
             if response.status_code != 200:
                 response.fail("Status code {}".format(response.status_code))
 
     @task(1)
-    def getwrongresource(self):
+    def get_wrong_resource(self):
         self.client.get("/api/unknown/23")
+
     @task
     def exit_task_execution(self):
         self.interrupt()

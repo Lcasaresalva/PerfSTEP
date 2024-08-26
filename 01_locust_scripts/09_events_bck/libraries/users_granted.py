@@ -1,7 +1,7 @@
 from locust import between
 from locust.exception import StopUser
-from usersLib.userInterfaz import UserInterfaz
-from usersLib.logModule import LogType, Logger
+from libraries.user_interfaz import UserInterfaz
+from libraries.logModule import Logger
 
 
 class UsersGranted(UserInterfaz):
@@ -10,10 +10,11 @@ class UsersGranted(UserInterfaz):
 
     def on_start(self):
 
-        with self.client.post("/api/users", data = {"name":"morpheus","job":"leader"}, catch_response=True) as response:
-            self.verifyLoginSuccess(response)
+        with self.client.post("/api/users", data={"name": "morpheus", "job": "leader"}, catch_response=True) as response:
+            self.verify_login(response)
 
-    def verifyLoginSuccess(self, response):
+    @staticmethod
+    def verify_login(response):
         try:
             Logger.log_message( "Un  users granted se ha creado, respuesta 201 esperada: " + str(response))
             if response.status_code == 201:  #Entonces almaceno la información gracias a los atributos heredados del httpuser

@@ -1,7 +1,7 @@
 from behave import step
 
 from execution_lib import execute_locust_tasks
-from tasks.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
+from executions.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
 
 
 @step('{users:d} users accessed with the proper profile every {spawn_rate:d} seconds')
@@ -23,7 +23,7 @@ def step2(context):
 
 @step('I execute the endurance scenario')
 def execute_locust_task(context):
-    context.host = "https://reqres.in"
+    context.host = "http://localhost:8080/api/v3"
 
     tasks_class_name = context.task_class_name
 

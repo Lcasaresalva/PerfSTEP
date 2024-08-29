@@ -7,4 +7,4 @@ docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:lat
 pip install -r requirements.txt
 
 https://behave.readthedocs.io/en/latest/
- behave
+ behave -o _output/output

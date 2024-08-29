@@ -9,13 +9,10 @@ Access swagger in http://localhost:8080/api/v3
 # Execution
 
 1.-  Folder 00_example_httpuser
-Create locustfile.py
-locust
-Open browser  http://0.0.0.0:8089
-Example Host: http://localhost:8080/api/v3 
+locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
 
 Running in headless mode (see output)
-locust --headless -u 1 -r 1 -H http://localhost:8080/api/v3 
+locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
 
 2.- Folder 01_example_user
 locust --headless

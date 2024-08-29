@@ -2,7 +2,7 @@
 from locust import task, TaskSet
 
 
-class ActionsOnUsers(TaskSet):
+class ActionsOnUser(TaskSet):
 
     @task(10)
     def modify_user(self):

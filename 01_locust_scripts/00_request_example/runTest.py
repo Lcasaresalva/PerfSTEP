@@ -10,20 +10,20 @@
 # locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
 
 
-from request_endpoint import RequestsHost
+from request_endpoint import POSTRequestsHost
 
 
-class RequestTasks(RequestsHost):
+class RequestTasks(POSTRequestsHost):
     endpoint = '/store/order'
     body = {"id": 10,
-              "petId": 198772,
-              "quantity": 7,
-              "shipDate": "2024-08-23T07:10:50.200Z",
-              "status": "approved",
-              "complete": True
+            "petId": 198772,
+            "quantity": 7,
+            "shipDate": "2024-08-23T07:10:50.200Z",
+            "status": "approved",
+            "complete": True
             }
 
     tasks = {
-        RequestsHost.post_request: 1
+        POSTRequestsHost.request: 1
     }
 

@@ -6,9 +6,7 @@ from locust.env import Environment
 from locust.stats import stats_history, stats_printer
 from locust.log import setup_logging
 
-from tasks.actions_resources import ActionsOnResources
-from tasks.actions_users import ActionsOnUsers
-from executions.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
+from executions.endurance_example import *
 from executions.request_endpoint import *
 
 

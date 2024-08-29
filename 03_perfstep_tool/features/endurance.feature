@@ -16,6 +16,7 @@ Feature: Execute tasks on resources
       | 95%   | 100      |
       | avgRT | 150      |
       | ratio | 0.05     |
+
     Examples:
       | users | spawn_rate | test_time |
       | 10    | 5          | 60        |

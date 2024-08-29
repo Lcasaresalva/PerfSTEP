@@ -7,23 +7,24 @@
 
 """
 
-from tasks.actions_resources import ActionsOnResources
-from tasks.actions_users import ActionsOnUsers
+from tasks.actions_pet import ActionsOnPet
+from tasks.actions_store import ActionsOnStore
+from tasks.actions_user import ActionsOnUser
 from authentication.users_login import UsersAdmin, UsersGranted
 
 
 class ThreadGroupForAdmins(UsersAdmin):
     UsersAdmin.tasks = {
-        ActionsOnResources.return_inventory: 2,
-        ActionsOnUsers.modify_user: 2,
-        ActionsOnResources.order_store: 1,
+        ActionsOnStore.return_inventory: 2,
+        ActionsOnUser.modify_user: 2,
+        ActionsOnStore.order_store: 1,
     }
 
 
 class ThreadGroupForUsers(UsersGranted):
     UsersGranted.tasks = {
-        ActionsOnUsers.create_user: 2,
-        ActionsOnResources.update_pet: 2,
-        ActionsOnResources.find_pet: 2,
-        ActionsOnResources.delete_order: 2
+        ActionsOnUser.create_user: 2,
+        ActionsOnPet.update_pet: 2,
+        ActionsOnPet.find_pet: 2,
+        ActionsOnStore.delete_order: 2
     }

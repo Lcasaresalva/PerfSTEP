@@ -23,7 +23,6 @@ def step2(context):
 
 @step('I execute the endurance scenario')
 def execute_locust_task(context):
-    context.host = "http://localhost:8080/api/v3"
 
     tasks_class_name = context.task_class_name
 
@@ -45,21 +44,14 @@ def check_results(context):
 
     environment = context.env
 
-    failed_criteria = []
-    errors = 0
+    failed_criteria = ''
 
     if environment.stats.total.get_response_time_percentile(0.95) > int(perf_nfr['95%']):
-        failed_criteria.append(f'95th percentile response time > 100 ms: {environment.stats.total.get_response_time_percentile(0.95)} ms')
-        errors += 1
+        failed_criteria += f' - 95th percentile response time > 100 ms: {environment.stats.total.get_response_time_percentile(0.95)} ms'
     if environment.stats.total.avg_response_time > int(perf_nfr['avgRT']):
-        failed_criteria.append(f'Average response time ratio > 150 ms: {environment.stats.total.avg_response_time} ms')
-        errors += 1
+        failed_criteria += f' - Average response time ratio > 150 ms: {environment.stats.total.avg_response_time} ms'
     if environment.stats.total.fail_ratio >= float(perf_nfr['ratio']):
-        failed_criteria.append(f'Error ratio exceeds 5%: {environment.stats.total.fail_ratio}')
-        errors += 1
+        failed_criteria += f' - Error ratio exceeds 5%: {environment.stats.total.fail_ratio}'
 
-    # Reporta los NFRs fallidos
-
-    print('NFRs fully met!') if errors < 1 else print(f'{errors} NFRs failed during this run: \n')
-    for error in failed_criteria:
-        print(f'{error}\n')
+    print('NFRs fully met!') if failed_criteria == '' else print(f'NFRs failed during this run: \n {failed_criteria}')
+    assert failed_criteria == '', f'NFRs failed during this run:\n {failed_criteria}'

@@ -35,7 +35,25 @@ class ActionsOnPet(SequentialTaskSet):
         }
         self.client.put("/pet", json=body)
 
-    @task(40)
-    def delete_order(self):
-        order_id = 1
-        self.client.delete(f"/store/order/{order_id}")
+    @task(45)
+    def create_pet(self):
+        body = {
+                "id": 10,
+                "name": "doggie",
+                "category": {
+                    "id": 1,
+                    "name": "Dogs"
+                },
+                "photoUrls": [
+                    "string"
+                ],
+                "tags": [
+                    {
+                      "id": 0,
+                      "name": "string"
+                    }
+                ],
+                "status": "available"
+                }
+        self.client.put("/pet", json=body)
+

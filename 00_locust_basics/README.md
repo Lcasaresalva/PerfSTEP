@@ -7,11 +7,12 @@ docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:lat
 Access swagger in http://localhost:8080/api/v3 
 
 # Example 1
+
     1.-  Folder 00_example_httpuser
   
   ## Test scenario description:
-    
-    <img width="1033" alt="image" src="https://github.com/user-attachments/assets/95ae5367-f66f-43d3-837c-4f1484450b6e">
+  
+  <img width="983" alt="image" src="https://github.com/user-attachments/assets/7490d64c-5cfb-41a4-bf83-36d193aa1d82">
 
   ## Execution 1
 
@@ -25,6 +26,7 @@ Access swagger in http://localhost:8080/api/v3
     locust --headless -u 1 -r 1 -H http://localhost:8080/api/v3 
 
 # Example 2
+
   2.- Folder 01_example_user
 
   ## Test scenario description:

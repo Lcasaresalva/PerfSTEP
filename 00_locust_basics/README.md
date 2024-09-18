@@ -10,7 +10,8 @@ Access swagger in http://localhost:8080/api/v3
 
 1.-  Folder 00_example_httpuser
 Test description:
-![image](https://github.com/user-attachments/assets/9ef45f34-7569-4f19-b7b2-a1e932eacda2)
+<img width="1033" alt="image" src="https://github.com/user-attachments/assets/95ae5367-f66f-43d3-837c-4f1484450b6e">
+
 
 Create locustfile.py
 locust

@@ -6,23 +6,35 @@ docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:lat
 
 Access swagger in http://localhost:8080/api/v3 
 
-# Execution
+# Example 1
+    1.-  Folder 00_example_httpuser
+  
+  ## Test scenario description:
+    
+    <img width="1033" alt="image" src="https://github.com/user-attachments/assets/95ae5367-f66f-43d3-837c-4f1484450b6e">
 
-1.-  Folder 00_example_httpuser
-Test description:
-<img width="1033" alt="image" src="https://github.com/user-attachments/assets/95ae5367-f66f-43d3-837c-4f1484450b6e">
+  ## Execution 1
 
+    Create locustfile.py
+    locust -f locustfile.py –u 1 –r 1 –t 10 
+    Open browser  http://0.0.0.0:8089
+    
+    Example Host: http://localhost:8080/api/v3 
+    
+    Running in headless mode (see output)
+    locust --headless -u 1 -r 1 -H http://localhost:8080/api/v3 
 
-Create locustfile.py
-locust
-Open browser  http://0.0.0.0:8089
-Example Host: http://localhost:8080/api/v3 
+# Example 2
+  2.- Folder 01_example_user
 
-Running in headless mode (see output)
-locust --headless -u 1 -r 1 -H http://localhost:8080/api/v3 
+  ## Test scenario description:
 
-2.- Folder 01_example_user
-locust --headless
+  <img width="932" alt="image" src="https://github.com/user-attachments/assets/01505e5e-27ba-46d8-abf3-c6c7bdd54ce2">
+
+  ## Execution 2
+
+  locust -f locustfile.py –u 4 –t 10 --headless
+
 
 # Bibliography
 ## Recomended courses

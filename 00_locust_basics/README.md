@@ -9,6 +9,9 @@ Access swagger in http://localhost:8080/api/v3
 # Execution
 
 1.-  Folder 00_example_httpuser
+Test description:
+![image](https://github.com/user-attachments/assets/9ef45f34-7569-4f19-b7b2-a1e932eacda2)
+
 Create locustfile.py
 locust
 Open browser  http://0.0.0.0:8089

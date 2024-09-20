@@ -1,28 +1,30 @@
-# PerfStep
-Performance Test Tool based on Locust and Behave
+# Locust Basics
+Scripting usage and concepts of *locust*.
 
-# Create demo environment
-docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:latest
+## Example 1
+HTTPs request from classes to runner script and executed from locust CLI.
 
-Access swagger in http://localhost:8080/api/v3 
+1. Folder `00_request_example`
+2. Scenario parameters:
+    ```text
+   - Host: http://localhost:8080/api/v3
+   - Use Case: POST /order/store
+   - Users: 10
+   - Cores: 4
+   - Time duration: 20 sec
+   ```
+3. Command execution:
+    ```bash
+    $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
+    ```
 
-# Execution
+## Example 2
+Performance load scenario from classes to runner script and executed from locust CLI.
 
-1.-  Folder 00_example_httpuser
-locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
-
-Running in headless mode (see output)
-locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
-
-2.- Folder 01_example_user
-locust --headless
-
-# Bibliography
-## Recomended courses
-https://academy.qainsights.com/courses/learn-locust
-https://github.com/QAInsights/Learn-Locust-Series
-
-## Recommended resources
-https://locust.io/
-https://docs.locust.io/en/stable/
-https://www.blazemeter.com/blog/locust-python
+1. Folder `01_load_example`
+2. Scenario parameters:
+![alt text](../readme_resources/img/01_01_load_scenario.png)
+3. Command execution:
+    ```bash
+    $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
+    ```

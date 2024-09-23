@@ -12,18 +12,21 @@
 
 from tasks.actions_pet import *
 from tasks.actions_store import *
-# from tasks.actions_user import ActionsOnUser
 from authentication.users_login import UsersAdmin, UsersGranted
 
 
 class ThreadGroupForAdmins(UsersAdmin):
-    UsersAdmin.weight = 1
-    UsersAdmin.tasks = [update_pet, return_inventory, return_inventory, return_inventory, return_inventory]
-    # UsersAdmin.tasks = {update_pet: 1, return_inventory: 10}
+    weight = 3
+    tasks = {
+        update_pet: 2,
+        order_store: 4,
+        return_inventory: 6
+    }
 
 
 class ThreadGroupForUsers(UsersGranted):
-    UsersGranted.weight = 2
-    UsersGranted.tasks = {
-        find_pet: 1
+    weight = 7
+    tasks = {
+        find_pet: 2,
+        delete_order: 4
     }

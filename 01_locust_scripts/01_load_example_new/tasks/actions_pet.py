@@ -26,9 +26,3 @@ def update_pet(user):
     }
     response = user.client.put("/pet", json=body, headers=user.headers)
     print(response.request.headers)
-
-
-def delete_order(user):
-    order_id = 1
-    response = user.client.delete(f"/store/order/{order_id}", headers=user.headers)
-    print(response.request.headers)

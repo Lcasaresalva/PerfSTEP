@@ -9,22 +9,13 @@
 # Example in command line:
 # locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -t 20 --processes 4 --autostart --autoquit 3
 
-from tasks.actions_store import *
 from tasks.actions_user import ActionsOnUser
-from authentication.users_login import UsersAdmin, UsersGranted
+from authentication.users_login import UsersAdmin
 
 
 class ThreadGroupForAdmins(UsersAdmin):
-    weight = 6
-    UsersAdmin.tasks = {
-        ActionsOnUser.create_user: 4,
-        ActionsOnUser.modify_user: 2,
-        ActionsOnUser.delete_user: 2,
-    }
-
-
-class ThreadGroupForUsers(UsersGranted):
-    weight = 2
-    UsersGranted.tasks = {
-        return_inventory: 2
+    tasks = {
+        ActionsOnUser.delete_user: 6,
+        ActionsOnUser.modify_user: 4,
+        ActionsOnUser.create_user: 2,
     }

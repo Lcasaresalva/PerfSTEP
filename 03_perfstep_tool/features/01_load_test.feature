@@ -1,8 +1,8 @@
-@no_driver @perf
+@no_driver
 Feature: Execute tasks on resources
-#  Background: We want to inject load on some Resources-related APIS with a number of users
+         Inject load on some Resources-related APIS with a number of users
 
-  @end
+  @load
   Scenario Outline: Resources Tasks Execution
     Given <users> users accessed with the proper profile every <spawn_rate> seconds
     And the scenario should take "<test_time>" seconds

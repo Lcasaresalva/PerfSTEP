@@ -41,11 +41,13 @@ Performance load scenario in locustfile.py through locust CLI.
    - Use Case: 
       - 50% MyFirstTest
       - 50% MySecondTest
+   - Users: 4
+   - spawn-rate = 2 users/s
    - Time duration: 10 sec
    ```
 3. Command execution:
    ```bash
-   locust -f locustfile.py –u 4 –t 10 --headless
+   locust -f locustfile.py –u 4 -r 2 –t 10 --headless
    ```
 
 

@@ -1,9 +1,8 @@
-"""Este módulo representa el escenario de una prueba, que incluye:
-    1- Tareas que se realizan una sola vez antes de comenzar la ejecución y después de finalizar
-    2- Clases donde se representan los grupos de hilos de Jmeter que son:
-        - Hilos con un perfil concreto predefinido en una clase aparte, de la que están heredando
-        - Hilos que hacen unas tareas concretas traídas de una clase previamente definida como TaskSet
-        - Cda grupo tiene un peso concreto
+"""Este fichero representa el escenario de una prueba, que incluye:
+    - 2 Clases donde se representan los grupos de hilos (Threads en Jmeter)
+    - Cada grupo hereda un perfil concreto implementado en una clase aparte (Admins y Users)
+    - Cada grupo de usuarios que ejecutan unos casos de uso concretos
+    - La distribución de la carga entre los casos de uso de cada grupo se representa con los pesos
 
 """
 # Example in command line:

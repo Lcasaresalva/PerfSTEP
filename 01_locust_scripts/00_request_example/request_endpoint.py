@@ -1,9 +1,9 @@
-
-from locust import task, HttpUser, between
+from locust import task, HttpUser, between, constant_throughput
 
 
 class GETRequestsHost(HttpUser):
     wait_time = between(1, 5)
+    # If abstract is True, the class is meant to be subclassed, and locust will not spawn users of this class during a test.
     abstract = True
     endpoint = None
 
@@ -14,6 +14,7 @@ class GETRequestsHost(HttpUser):
 
 class POSTRequestsHost(HttpUser):
     wait_time = between(1, 5)
+    # If abstract is True, the class is meant to be subclassed, and locust will not spawn users of this class during a test.
     abstract = True
     endpoint = None
     body = None

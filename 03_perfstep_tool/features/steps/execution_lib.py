@@ -1,59 +1,39 @@
-@no_driver
-Feature: Execute request on resources # ../00_request_host.feature:2
+import gevent
 
-  @get
-  Scenario Outline: Resources Tasks Execution -- @1.1               # ../00_request_host.feature:13
-    Given 10 users accessed with the proper profile every 5 seconds # None
-    And the scenario should take "60" seconds                       # None
-    When I execute the "GET" to "/user/logout" endpoint             # None
+from locust import events
+from locust.env import Environment
 
-  Scenario Outline: Resources Tasks Execution -- @1.1               # ../00_request_host.feature:24
-    Given 10 users accessed with the proper profile every 5 seconds # None
-    And the scenario should take "60" seconds                       # None
-    And I use the admin user                                        # None
-    When I execute the "GET" to "/pet/1" endpoint                   # None
+from locust.stats import stats_history, stats_printer
+from locust.log import setup_logging
 
-  Scenario Outline: Resources Tasks Execution -- @1.1               # ../00_request_host.feature:54
-    Given 10 users accessed with the proper profile every 5 seconds # None
-    And the scenario should take "60" seconds                       # None
-    And the request body is                                         # None
-      """
-        {
-          "id": 10,
-          "name": "doggie",
-          "category": {
-            "id": 1,
-            "name": "Dogs"
-          },
-          "photoUrls": [
-             "string"
-          ],
-          "tags": [
-            {
-              "id": 0,
-              "name": "string"
-            }
-          ],
-          "status": "available"
-        }
-      """
-    When I execute the "POST" to "/pet" endpoint                    # None
+from executions.endurance_example import *
+from executions.request_endpoint import *
 
-@no_driver @perf
-Feature: Execute tasks on resources # ../01_load_test.feature:2
 
-  @end
-  Scenario Outline: Resources Tasks Execution -- @1.1               # ../01_load_test.feature:22
-    Given 10 users accessed with the proper profile every 5 seconds # None
-    And the scenario should take "60" seconds                       # None
-    And I configure the following tasks with weights                # None
-      | task                 | weight |
-      | ThreadGroupForUsers  | 4      |
-      | ThreadGroupForAdmins | 6      |
-    When I execute the endurance scenario                           # None
-    Then I check performance results according to                   # None
-      | nfr   | criteria |
-      | 95%   | 100      |
-      | avgRT | 150      |
-      | ratio | 0.05     |
+def execute_locust_tasks(context, task_classes_name):
+    setup_logging("DEBUG")
 
+    task_classes = [globals()[task_class_name] for task_class_name in task_classes_name]
+
+    context.env = Environment(user_classes=task_classes, events=events, host=context.host)
+
+    runner = context.env.create_local_runner()
+    # runner = env.create_master_runner("*", 5572)
+
+    # execute init event handlers (only really needed if you have registered any)
+    context.env.events.init.fire(environment=context.env, runner=runner)
+
+    # start a greenlet that periodically outputs the current stats
+    gevent.spawn(stats_printer(context.env.stats))
+
+    # start a greenlet that save current stats to history
+    gevent.spawn(stats_history, context.env.runner)
+
+    # start the test
+    runner.start(context.users, spawn_rate=context.spawn_rate)
+
+    # stop the test after test_time
+    gevent.spawn_later(context.test_time, runner.quit)
+
+    # wait for the greenlets
+    runner.greenlet.join()

@@ -33,7 +33,7 @@ HTTPs request into *locustfile.py* and executed from locust UI.
 
 
 ## Example 2
-Performance load scenario in locustfile.py through locust CLI.
+Test with load distribution implemented in *locustfile.py* and executed through locust CLI.
 
 1. Folder `01_example_user`
 2. Scenario parameters:

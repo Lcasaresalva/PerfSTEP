@@ -1,4 +1,4 @@
-# BEHAVE
+# BEHAVE Basics
 Behave minimum project
 
 1. Lauch testing environment 
@@ -14,15 +14,12 @@ Behave minimum project
    ```bash
    $ pip install -r requirements.txt
    ```
-   ```text
-   see default config in /behave.ini
-   ```
 4. Execute
 
    ```bash
    $ behave
    ```
-   *See default config in /behave.ini*
+   **See default config in /behave.ini*
 
 
 5. Expected Result:

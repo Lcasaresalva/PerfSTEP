@@ -1,10 +1,7 @@
 # Locust Basics
 Scripting usage and concepts of *locust*.
-
-## Example 1
-
-GET/POST Http requests interface invoked from locustfile and executed in locust CLI.
-
+## Scenario 1
+HTTP GET/POST requests sent to a target API from the locust file. Test executed in the Locust CLI.
 1. Folder `00_request_example`
 2. Scenario parameters:
    ```text
@@ -21,9 +18,8 @@ GET/POST Http requests interface invoked from locustfile and executed in locust 
     $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 1 -t 20 --processes 4 --headless
     ```
 
-## Example 2
-Thread groups classes to create a well-distributed Load Test Scenario launched from locust CLI.
-
+## Scenario 2
+Locust file that implements a complete load model. The load is distributed between two different user profiles and several use cases in a target API.
 1. Folder `01_load_example`
 2. Scenario parameters:
 

@@ -7,11 +7,11 @@ class MyFirstTest(User):
 
     @task
     def launch(self):
-        print("MyFirstTest: Launching the URL")
+        print("MyFirstTest: Launching the URL1")
 
     @task
     def search(self):
-        print("MyFirstTest: Searching")
+        print("MyFirstTest: Searching1")
 
 
 class MySecondTest(User):
@@ -20,8 +20,8 @@ class MySecondTest(User):
 
     @task
     def launch2(self):
-        print("MySecondTest: Launching the URL")
+        print("MySecondTest: Launching the URL2")
 
     @task
     def search2(self):
-        print("MySecondTest: Searching")
+        print("MySecondTest: Searching2")

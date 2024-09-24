@@ -1,10 +1,19 @@
-# PerfStep
+# PerfSTEP
 Performance Test Tool based on Locust and Behave
 
-Lauch testing environment
-docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:latest
+## How - To
 
-pip install -r requirements.txt
+1. Go to `03_perfstep_tool` folder
 
-https://behave.readthedocs.io/en/latest/
- behave -o _output/output
+2.Install prerequisites
+
+   ```bash
+   $ pip install -r requirements.txt
+   ```
+3.Execute
+   ```bash
+      $ behave -o _output/output
+      ```
+
+   **See default config in /behave.ini*
+

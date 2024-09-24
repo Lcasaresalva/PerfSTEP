@@ -1,4 +1,4 @@
-# PerfStep
+# PerfSTEP
 
 *PerfSTEP* is a Performance Test Tool based on Locust and Behave
 
@@ -29,11 +29,16 @@
 ## Bibliography
 ### Recomended courses
 https://academy.qainsights.com/courses/learn-locust
+
 https://github.com/QAInsights/Learn-Locust-Series
 
 ### Recommended resources
 https://locust.io/
+
 https://docs.locust.io/en/stable/
-https://www.blazemeter.com/blog/locust-python
+
+https://www.blazemeter.com/blog/locust-python/
+
 https://cucumber.io/docs/bdd/
+
 https://behave.readthedocs.io/en/latest/

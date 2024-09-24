@@ -37,5 +37,3 @@ def execute_locust_tasks(context, task_classes_name):
 
     # wait for the greenlets
     runner.greenlet.join()
-
-

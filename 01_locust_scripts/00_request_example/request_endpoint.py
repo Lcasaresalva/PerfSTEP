@@ -1,10 +1,8 @@
-
 from locust import task, HttpUser, between
 
 
 class GETRequestsHost(HttpUser):
     wait_time = between(1, 5)
-    abstract = True
     endpoint = None
 
     @task
@@ -14,7 +12,6 @@ class GETRequestsHost(HttpUser):
 
 class POSTRequestsHost(HttpUser):
     wait_time = between(1, 5)
-    abstract = True
     endpoint = None
     body = None
 

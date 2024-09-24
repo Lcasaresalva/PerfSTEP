@@ -26,6 +26,3 @@ def execute_locust_task(context, request, endpoint):
     task_class.body = context.body if "body" in context else None
     task_class.headers = context.headers if "headers" in context else {'accept': 'application/json'}
     execute_locust_tasks(context, [task_class_name])
-
-
-

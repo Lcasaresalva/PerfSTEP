@@ -16,7 +16,7 @@ Performance Test Tool based on Locust and Behave
    ```
 4. Execute
    ```bash
-      $ behave
+      $ behave -o _output/output
       ```
 
    **See default config in /behave.ini*

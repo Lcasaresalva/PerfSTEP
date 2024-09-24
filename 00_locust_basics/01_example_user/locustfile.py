@@ -2,7 +2,7 @@ from locust import User, task, constant, between
 
 
 class MyFirstTest(User):
-    weight = 3
+    weight = 2
     wait_time = constant(1)
 
     @task
@@ -15,7 +15,7 @@ class MyFirstTest(User):
 
 
 class MySecondTest(User):
-    weight = 6
+    weight = 2
     wait_time = between(0.5, 1)
 
     @task

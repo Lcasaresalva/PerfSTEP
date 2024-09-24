@@ -1,20 +1,15 @@
 # BEHAVE Basics
 Behave minimum project
 
-1. Lauch testing environment 
-   ```bash
-      $ docker run  --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:latest
-   ```
-
-2. Go to `02_behave_basic` folder
+1. Go to `02_behave_basic` folder
 
 
-3. Install prerequisites
+2. Install prerequisites
 
    ```bash
    $ pip install -r requirements.txt
    ```
-4. Execute
+3. Execute
 
    ```bash
    $ behave
@@ -22,7 +17,7 @@ Behave minimum project
    **See default config in /behave.ini*
 
 
-5. Expected Result:
+4. Expected Result:
    ```bash
    ...
    1 feature passed, 0 failed, 0 skipped

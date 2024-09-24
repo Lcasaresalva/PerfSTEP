@@ -1,41 +1,28 @@
 
-from locust import task, SequentialTaskSet
+def find_pet(user):
+    pet_id = 1
+    response = user.client.get(f"/pet/{pet_id}", headers=user.headers)
+    print(response.request.headers)
 
 
-class ActionsOnPet(SequentialTaskSet):
-
-    def on_start(self):
-        pass
-
-    @task(45)
-    def find_pet(self):
-        pet_id = 1
-        response = self.client.get(f"/pet/{pet_id}", headers=self.headers)
-        print(response.request.headers)
-
-    @task(45)
-    def update_pet(self):
-        body = {
-            "id": 10,
-            "name": "doggie",
-            "category": {
-                "id": 1,
-                "name": "Dogs"
-            },
-            "photoUrls": [
-                "string"
-            ],
-            "tags": [
-                {
-                    "id": 0,
-                    "name": "string"
-                }
-            ],
-            "status": "available"
-        }
-        self.client.put("/pet", json=body)
-
-    @task(40)
-    def delete_order(self):
-        order_id = 1
-        self.client.delete(f"/store/order/{order_id}")
+def update_pet(user):
+    body = {
+        "id": 10,
+        "name": "doggie",
+        "category": {
+            "id": 1,
+            "name": "Dogs"
+        },
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 0,
+                "name": "string"
+            }
+        ],
+        "status": "available"
+    }
+    response = user.client.put("/pet", json=body, headers=user.headers)
+    print(response.request.headers)

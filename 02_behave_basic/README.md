@@ -1,10 +1,7 @@
 # BEHAVE Basics
 Behave minimum project
 
-1. Go to `02_behave_basic` folder
-
-
-2. Install prerequisites
+1. Install prerequisites
 
    ```bash
    $ pip install -r requirements.txt
@@ -27,6 +24,6 @@ Behave minimum project
    
     File: 02_behave_basic/_output/xmlresults/TESTS-hello_world.xml is created 
 
-### Behave Oficial Documentation:
+### Behave Documentation:
 
 https://behave.readthedocs.io/en/latest/

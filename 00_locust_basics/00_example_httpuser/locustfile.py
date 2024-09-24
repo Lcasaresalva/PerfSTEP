@@ -2,7 +2,6 @@ from locust import HttpUser, task
 
 
 class MyHttpUser(HttpUser):
-    # host = "http://localhost:8080/api/v3 "
     @task
     def order_store(self):
         body = {

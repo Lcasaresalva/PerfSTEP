@@ -6,7 +6,6 @@ conf = Configuration()
 
 
 class UsersAdmin(HttpUser):
-    abstract = True
     wait_time = between(3, 5)
 
     def on_start(self):
@@ -16,7 +15,6 @@ class UsersAdmin(HttpUser):
 
 class UsersGranted(HttpUser):
     wait_time = between(1, 3)
-    abstract = True
 
     def on_start(self):
         api_key = conf.userdata["user_granted_key"]

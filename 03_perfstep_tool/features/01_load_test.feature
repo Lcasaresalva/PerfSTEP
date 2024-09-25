@@ -10,7 +10,7 @@ Feature: Execute tasks on resources
       | task                 | weight |
       | ThreadGroupForUsers  | 4      |
       | ThreadGroupForAdmins | 6      |
-    When I execute the endurance scenario
+    When I execute the load scenario
     Then I check performance results according to
       | nfr   | criteria |
       | 95%   | 100      |

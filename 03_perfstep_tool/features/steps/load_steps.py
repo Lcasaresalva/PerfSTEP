@@ -1,7 +1,7 @@
 from behave import step
 
 from execution_lib import execute_locust_tasks
-from executions.endurance_example import ThreadGroupForUsers, ThreadGroupForAdmins
+from executions.load_example import ThreadGroupForUsers, ThreadGroupForAdmins
 
 
 @step('{users:d} users accessed with the proper profile every {spawn_rate:d} seconds')
@@ -21,7 +21,7 @@ def step2(context):
     context.task_class_weight = [row['weight'] for row in context.table]
 
 
-@step('I execute the endurance scenario')
+@step('I execute the load scenario')
 def execute_locust_task(context):
 
     tasks_class_name = context.task_class_name

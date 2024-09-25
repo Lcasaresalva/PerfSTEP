@@ -13,7 +13,8 @@ from authentication.users_login import UsersAdmin, UsersGranted
 
 
 class ThreadGroupForAdmins(UsersAdmin):
-    weight = 3
+    abstract = True
+
     tasks = {
         update_pet: 2,
         order_store: 4,
@@ -22,7 +23,8 @@ class ThreadGroupForAdmins(UsersAdmin):
 
 
 class ThreadGroupForUsers(UsersGranted):
-    weight = 7
+    abstract = True
+
     tasks = {
         find_pet: 2,
         delete_order: 4

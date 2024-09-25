@@ -13,8 +13,8 @@ Feature: Execute tasks on resources
     When I execute the load scenario
     Then I check performance results according to
       | nfr   | criteria |
-      | 95%   | 100      |
-      | avgRT | 150      |
+      | 95%   | 1       |
+      | avgRT | 1       |
       | ratio | 0.05     |
 
     Examples:

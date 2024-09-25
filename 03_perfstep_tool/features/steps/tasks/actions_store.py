@@ -1,7 +1,6 @@
 
 def return_inventory(self):
-    response = self.client.get("/store/inventory", headers=self.headers)
-    print(response.request.headers)
+    self.client.get("/store/inventory", headers=self.headers)
 
 
 def order_store(self):
@@ -13,11 +12,10 @@ def order_store(self):
       "status": "approved",
       "complete": True
     }
-    response = self.client.post("/store/order", json=body, headers=self.headers)
-    print(response.request.headers)
+    self.client.post("/store/order", json=body, headers=self.headers)
 
 
 def delete_order(self):
     order_id = 1
-    response = self.client.delete(f"/store/order/{order_id}", headers=self.headers)
-    print(response.request.headers)
+    self.client.delete(f"/store/order/{order_id}", headers=self.headers)
+

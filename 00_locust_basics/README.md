@@ -16,19 +16,19 @@ HTTPs request into *locustfile.py* and executed from locust UI.
 3. Command execution:
    1. By default:
        ```bash
-       $ locust –u 1 –r 1 –t 10
+       $ locust -u 1 -r 1 -t 10 -H http://localhost:8080/api/v3 
     
        Access Locust in http://0.0.0.0:8089
        ```
    2. Specifying file:
        ```bash
-       $ locust -f locustfile.py –u 1 –r 1 –t 10
+       $ locust -f locustfile.py -u 1 -r 1 -t 10 -H http://localhost:8080/api/v3 
     
        Access Locust in http://0.0.0.0:8089
        ```
     3. Headless execution:
        ```bash
-       $ locust -f locustfile.py –u 1 –r 1 –t 10 --headless
+       $ locust -f locustfile.py -u 1 -r 1 -t 10 -H http://localhost:8080/api/v3 --headless
        ```
 
 
@@ -47,7 +47,7 @@ Test with load distribution implemented in *locustfile.py* and executed through 
    ```
 3. Command execution:
    ```bash
-   locust -f locustfile.py –u 4 -r 2 –t 10 --headless
+   locust -f locustfile.py -u 4 -r 2 -t 10 -H http://localhost:8080/api/v3 --headless
    ```
 
 

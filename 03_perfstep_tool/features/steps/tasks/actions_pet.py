@@ -1,8 +1,7 @@
 
 def find_pet(user):
     pet_id = 1
-    response = user.client.get(f"/pet/{pet_id}", headers=user.headers)
-    print(response.request.headers)
+    user.client.get(f"/pet/{pet_id}", headers=user.headers)
 
 
 def update_pet(user):
@@ -24,5 +23,5 @@ def update_pet(user):
         ],
         "status": "available"
     }
-    response = user.client.put("/pet", json=body, headers=user.headers)
-    print(response.request.headers)
+    user.client.put("/pet", json=body, headers=user.headers)
+

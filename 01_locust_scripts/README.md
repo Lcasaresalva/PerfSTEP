@@ -10,17 +10,23 @@ HTTP GET/POST requests sent to a target API from the locust file. Test executed 
    - Users: 10
    - Spawn-rate: 1 user/sec
    - Ramp-up duration: 10 sec
-   - Cores: 4
    - Scenario duration: 20 sec
    ```
 3. Command execution:
     ```bash
     $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 1 -t 20 --processes 4 --headless
    ```
+   *Example in command line with 4 cores:*
+  
+   ```bash
+   $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 2 -t 20 --processes 4
+   ```
+   
    *Example in command line with autoquit to avoid the usage of ctrl+c:*
   
    ```bash
-   $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 2 -t 20 --processes -1 --autostart --autoquit 3```
+   $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 2 -t 20 --processes -1 --autostart --autoquit 3
+   ```
 
 ## Scenario 2
 Locust file that implements a complete load model. The load is distributed between two different user profiles and several use cases in a target API.
@@ -37,6 +43,7 @@ Locust file that implements a complete load model. The load is distributed betwe
    ```
    
    ![alt text](../readme_resources/img/01_01_load_scenario.png)
+   ![alt text](../readme_resources/img/01_01_load_scenario_ratios.png)
 
 3. Command execution:
     ```bash

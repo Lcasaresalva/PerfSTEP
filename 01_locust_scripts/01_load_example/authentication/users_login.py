@@ -1,10 +1,9 @@
 
-from locust import HttpUser, between, constant
+from locust import HttpUser, constant
 
 
 class UsersAdmin(HttpUser):
     abstract = True
-    # wait_time = between(3, 5)
     wait_time = constant(1)
 
     def on_start(self):
@@ -12,7 +11,6 @@ class UsersAdmin(HttpUser):
 
 
 class UsersGranted(HttpUser):
-    # wait_time = between(1, 3)
     abstract = True
     wait_time = constant(1)
 

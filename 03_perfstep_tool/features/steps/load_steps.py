@@ -47,11 +47,11 @@ def check_results(context):
     failed_criteria = ''
 
     if environment.stats.total.get_response_time_percentile(0.95) > int(perf_nfr['95%']):
-        failed_criteria += f' - 95th percentile response time > 100 ms: {environment.stats.total.get_response_time_percentile(0.95)} ms'
+        failed_criteria += f' - 95th percentile response time > {int(perf_nfr["95%"])} ms: {environment.stats.total.get_response_time_percentile(0.95)} ms\n'
     if environment.stats.total.avg_response_time > int(perf_nfr['avgRT']):
-        failed_criteria += f' - Average response time ratio > 150 ms: {environment.stats.total.avg_response_time} ms'
+        failed_criteria += f' - Average response time ratio > {int(perf_nfr["avgRT"])} ms: {environment.stats.total.avg_response_time} ms\n'
     if environment.stats.total.fail_ratio >= float(perf_nfr['ratio']):
-        failed_criteria += f' - Error ratio exceeds 5%: {environment.stats.total.fail_ratio}'
+        failed_criteria += f' - Error ratio exceeds {float(perf_nfr["ratio"])*100}%: {environment.stats.total.fail_ratio}\n'
 
     print('NFRs fully met!') if failed_criteria == '' else print(f'NFRs failed during this run: \n {failed_criteria}')
-    assert failed_criteria == '', f'NFRs failed during this run:\n {failed_criteria}'
+    assert failed_criteria == '', f'NFRs failed during this run:\n{failed_criteria}'

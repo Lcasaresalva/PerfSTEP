@@ -1,12 +1,9 @@
-
 import gevent
-import os
 
-from locust.stats import StatsCSVFileWriter
 from locust import events
 from locust.env import Environment
 
-from locust.stats import stats_history, stats_printer, get_percentile_stats_summary
+from locust.stats import stats_printer
 from locust.log import setup_logging
 
 from executions.load_example import *
@@ -28,9 +25,6 @@ def execute_locust_tasks(context, task_classes_name):
     # start a greenlet that periodically outputs the current stats
     gevent.spawn(stats_printer(context.env.stats))
 
-    # start a greenlet that save current stats to history
-    gevent.spawn(stats_history, context.env.runner)
-
     # start the test
     runner.start(context.users, spawn_rate=context.spawn_rate)
 
@@ -39,5 +33,5 @@ def execute_locust_tasks(context, task_classes_name):
 
     # wait for the greenlets
     runner.greenlet.join(timeout=20)
-    context.env.stats.clear_all()
+    # context.env.stats.clear_all()
 

@@ -21,10 +21,10 @@
 
 ## PerfStep Course guidelines
 
-- [Locust Basics](00_locust_basics/README.md>).
-- [Locust Scripts](01_locust_scripts/README.md>).
-- [Behave Basic](02_behave_basic/README.md>).
-- [PerfSTEP](03_perfstep_tool/README.md>).
+- [Locust Basics](00_locust_basics/README.md).
+- [Locust Scripts](01_locust_scripts/README.md).
+- [Behave Basic](02_behave_basic/README.md).
+- [PerfSTEP](03_perfstep_tool/README.md).
 
 ## Bibliography
 ### Recomended courses

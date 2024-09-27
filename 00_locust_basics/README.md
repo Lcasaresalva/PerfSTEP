@@ -4,7 +4,7 @@ Basic usage and concepts of *locust*.
 ## Example 1
 HTTPs request into *locustfile.py* and executed from locust UI.
 
-1. Folder `00_example_httpuser`
+1. Folder `00_locust_basics/00_example_httpuser`
 2. Scenario parameters:
     ```text
    - Host: http://localhost:8080/api/v3
@@ -35,7 +35,7 @@ HTTPs request into *locustfile.py* and executed from locust UI.
 ## Example 2
 Test with load distribution implemented in *locustfile.py* and executed through locust CLI.
 
-1. Folder `01_example_user`
+1. Folder `00_locust_basics/01_example_user`
 2. Scenario parameters:
     ```text
    - Use Case: 

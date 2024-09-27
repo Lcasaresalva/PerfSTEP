@@ -14,7 +14,7 @@ HTTP GET/POST requests sent to a target API from the locust file. Test executed 
    ```
 3. Command execution:
     ```bash
-    $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 1 -t 20 --processes 4 --headless
+    $ locust -f runTest.py --host http://localhost:8080/api/v3 -u 10 -r 1 -t 20 --headless
    ```
    *Example in command line with 4 cores:*
   

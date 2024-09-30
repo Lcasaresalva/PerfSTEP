@@ -3,7 +3,7 @@ Feature: Execute request on resources
          Inject load on some Resources-related APIS with a number of users
 
   @get
-  Scenario Outline: Resources Tasks Execution
+  Scenario Outline: GET Request execution through endpoint
     Given <users> users accessed with the proper profile every <spawn_rate> seconds
     And the scenario should take "<test_time>" seconds
     And I use the admin user
@@ -14,7 +14,7 @@ Feature: Execute request on resources
       |    10 |         5  | 10        |
 
   @post
-  Scenario Outline: Resources Tasks Execution
+  Scenario Outline: POST Request execution through endpoint
     Given <users> users accessed with the proper profile every <spawn_rate> seconds
     And the scenario should take "<test_time>" seconds
     And the request body is

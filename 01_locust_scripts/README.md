@@ -43,7 +43,25 @@ Locust file that implements a complete load model. The load is distributed betwe
    ```
    
    ![alt text](../readme_resources/img/01_01_load_scenario.png)
-   ![alt text](../readme_resources/img/01_01_load_scenario_ratios.png)
+   ```text
+   RATIO PER CLASS
+   - 60.0% ThreadGroupForAdmin
+      - 14.3% update_pet
+      - 28.6% order_store
+      - 57.1% return_inventory
+   - 40.0% ThreadGroupForUsers
+      - 33.3% find_pet
+      - 66.7% delete_order
+   
+   TOTAL RATIO
+   - 60.0% ThreadGroupForAdmin
+      - 8.6% update_pet
+      - 17.1% order_store
+      - 34.3% return_inventory
+   - 40.0% ThreadGroupForUsers
+      - 13.3% find_pet
+      - 26.7% delete_order
+   ```
 
 3. Command execution:
     ```bash

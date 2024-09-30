@@ -1,4 +1,4 @@
-# PerfSTEP
+![alt text](readme_resources/logo/logo_PerfSTEP.png)
 
 *PerfSTEP* is a Performance Test Tool based on Locust and Behave
 
